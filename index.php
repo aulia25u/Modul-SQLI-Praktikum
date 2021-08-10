@@ -103,7 +103,7 @@ if( isset($_POST["login"]) ){
 						</div>
 
 						<div>
-							<a href="data-asisten.php">Tanggung jawab sendiri ya</a>
+							<!-- <a href="data-asisten.php">Tanggung jawab sendiri ya</a> -->
 						</div>
 					</div>
 
