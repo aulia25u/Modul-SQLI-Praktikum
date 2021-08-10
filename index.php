@@ -16,14 +16,12 @@ if (isset($_SESSION['username'])) {
 }
 
 if( isset($_POST["login"]) ){
-		$username = stripslashes($_REQUEST['username']);
-        $username = mysqli_real_escape_string($con, $username);
-        $password = stripslashes($_REQUEST['pass']);
-        $password = mysqli_real_escape_string($con, $password);
-
+		$username = $_REQUEST['username'];
+        $password = $_REQUEST['pass'];
+		
 		// Check user is exist in the database
 		$query    = "SELECT * FROM `user` WHERE username='$username' AND pass='" . md5($password) . "'";
-	    $result = mysqli_query($con, $query) or die($mysqli->error);
+	    $result = mysqli_query($con, $query);
 	    $rows = mysqli_num_rows($result);
         if ($rows == 1) {
             //set session
@@ -36,12 +34,7 @@ if( isset($_POST["login"]) ){
             exit;
 			}
         }
-		else{
-			echo "
-            <script>
-            alert('Username or Password Not Match');
-        	</script>";
-		}
+		
 }
 ?>
 
